@@ -1,7 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import subprocess
 from distutils.core import setup
+from glob import glob
 
 from ldoce5viewer import __version__
 
@@ -83,7 +84,7 @@ else:
                     "argv_emulation": False,
                     "optimize": 0,
                     "includes": ["sip", "lxml._elementpath"],
-                    "packages": [],
+                    "packages": [ ],
                     "excludes": [
                         "email",
                         "sqlite3",
@@ -107,8 +108,9 @@ else:
                 }
             },
             data_files=[
-                ("qt_plugins/imageformats", [qt_plugins_path]),
-                ("", ["ldoce5viewer/static"]),
+                # ("qt_plugins/imageformats", [qt_plugins_path]),
+                # ("", ["ldoce5viewer/static"]),
+                ("", glob("ldoce5viewer/static/**/*.*", recursive=True)),
             ],
         )
     )

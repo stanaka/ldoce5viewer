@@ -1,14 +1,14 @@
 PKG := ldoce5viewer
-PYTHON := python
+PYTHON := python3
 
 build: precompile
 	$(PYTHON) ./setup.py build
 
 install: build
 	$(PYTHON) ./setup.py install
-	cp ./ldoce5viewer.desktop /usr/share/applications/
-	cp ./ldoce5viewer/qtgui/resources/ldoce5viewer.svg /usr/share/pixmaps/
-	[ -x /usr/bin/update-desktop-database ] && sudo update-desktop-database -q
+	# cp ./ldoce5viewer.desktop /usr/share/applications/
+	# cp ./ldoce5viewer/qtgui/resources/ldoce5viewer.svg /usr/share/pixmaps/
+	# [ -x /usr/bin/update-desktop-database ] && sudo update-desktop-database -q
 
 sdist: precompile
 	$(PYTHON) ./setup.py sdist
